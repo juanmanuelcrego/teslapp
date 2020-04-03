@@ -1,0 +1,139 @@
+<section class="row">
+    <section class="container">
+        <div class="col s12 m12 l12">
+            <mat-tab-group>
+                <mat-tab label="Baterías">
+                  <h5>Datos baterías</h5>
+                  <div>
+                    <h6>
+                        Filtrar por fechas
+                    </h6>
+                    <label>
+                        Desde
+                    </label>
+                    <input type="date">
+                    <label>
+                        Hasta
+                    </label>
+                    <input type="date">
+                  </div>
+                <hr>
+                  <table *ngFor='let bat of datosbat'>
+                      <tr>
+                          <th>
+                              ID
+                          </th>
+                          <th>
+                              NOMBRE
+                          </th>
+                          <th>
+                              VOLTAJE
+                          </th>
+                          <th>
+                              TEMPERATURA
+                          </th>
+                          <th>
+                              FECHA
+                          </th>
+                      </tr>
+                      <tr>
+                          <td>
+                              {{bat.id}}
+                          </td>
+                          <td>
+                              {{bat.nombre}}
+                          </td>
+                          <td>
+                              {{bat.voltaje}}
+                          </td>
+                          <td>
+                              {{bat.temperatura}}
+                          </td>
+                          <td>
+                              31/03/2020
+                          </td>
+                      </tr>
+                  </table>                
+                </mat-tab>
+                <mat-tab label="Corriente">
+                  <h5>Datos corriente</h5>
+                  <div>
+                    <h6>
+                        Filtrar por fechas
+                    </h6>
+                    <label>
+                        Desde
+                    </label>
+                    <input type="date">
+                    <label>
+                        Hasta
+                    </label>
+                    <input type="date">
+                  </div>
+                <hr>
+                  <table *ngFor='let cor of datoscor'>
+                      <tr>
+                          <th>
+                              ID
+                          </th>
+                          <th>
+                              NOMBRE
+                          </th>
+                          <th>
+                              INTENSIDAD
+                          </th>
+                          <th>
+                              FECHA
+                          </th>
+                      </tr>
+                      <tr>
+                          <td>
+                            {{cor.id}}
+                          </td>
+                          <td>
+                            {{cor.nombre}}
+                          </td>
+                          <td>
+                            {{cor.intensidad}}
+                          </td>
+                          <td>
+                              31/03/2020
+                          </td>
+                      </tr>
+                  </table>
+                    
+                </mat-tab>
+                <mat-tab label="Exportar">
+                    <h5>Exportar datos</h5>
+                    <p>
+                        Por favor, seleccioná un rango de fechas
+                    </p>
+                        <label>
+                            Desde
+                        </label>
+                        <input type="date">
+                        <label>
+                            Hasta
+                        </label>
+                        <input type="date">                                                              
+                    <p>
+                        Ahora seleccioná el módulo del cual queres exportar los datos
+                    </p>
+                    <div>
+                    <mat-slide-toggle>Módulo Baterías</mat-slide-toggle>
+                    </div>
+                    <div>
+                    <mat-slide-toggle>Módulo corriente</mat-slide-toggle>
+                    </div>
+                    <div>
+                    <button>
+                        Exportar
+                    </button>
+                    </div>
+                  </mat-tab>
+            </mat-tab-group>
+        </div>
+    </section>
+</section>
+
+
