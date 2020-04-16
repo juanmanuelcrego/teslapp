@@ -1,0 +1,2 @@
+#En este archivo volcamos los directorios que docker debe ignorar
+/node_modules
