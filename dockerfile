@@ -1,23 +1,20 @@
-#Defino la versión de NodeJs que tiene mi app
+# Use the official image as a parent image.
 FROM node:current-slim
 
-#Defino el directiorio donde se ejecuta mi app dentro de la imagen de docker
-WORKDIR /home/apps/teslapp
+# Set the working directory.
+WORKDIR /usr/src/app
 
-#Copio el package.json para que se instalen las dependecias en la imagen de docker
-COPY package*.json ./
+# Copy the file from your host to your current location.
+COPY package.json .
 
-#Ejecuto la app dentro de la imagen
+# Run the command inside your image filesystem.
 RUN npm install
 
-#Instalo PM2 global
-RUN npm install pm2 -g
-
-#Puerto donde escucha el server
+# Inform Docker that the container is listening on the specified port at runtime.
 EXPOSE 3000
 
-CMD ["pm2-runtime", "ecosystem.config.js", "--env", "production"]
+# Run the specified command within the container.
+CMD [ "npm", "start" ]
 
+# Copy the rest of your app's source code from your host to your image filesystem.
 COPY . .
-
-
